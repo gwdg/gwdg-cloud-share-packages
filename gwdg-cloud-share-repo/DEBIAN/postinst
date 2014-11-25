@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# install the gpg key
+
+KEY="/etc/apt/trusted.gpg.d/gwdg-cloud-share-keyring.gpg"
+
+echo "file $KEY"
+
+/usr/bin/apt-key add "$KEY"

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+CLOUD_SHARE_KEY="6B36076B"
+
+case "$1" in
+    remove|purge)
+	if [ -x /usr/bin/apt-key ]; then
+	    apt-key del "$CLOUD_SHARE_KEY"
+	fi
+    ;;
+
+    upgrade|deconfigure)
+    ;;
+
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+
+exit 0
