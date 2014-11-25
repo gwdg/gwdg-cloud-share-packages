@@ -1,0 +1,7 @@
+gwdg-cloud-share-server-repo for Debian/Ubuntu
+---------------------------------------
+
+Install repository information and GPG keys to /etc/apt/sources.list.d
+and /etc/trusted.gpg.d.
+
+ -- Benedikt Wegmann <benedikt.wegmann@gwdg.de>  Wed, 30 Jul 2014 14:00:15 +0200
