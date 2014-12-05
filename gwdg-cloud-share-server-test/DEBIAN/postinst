@@ -1,0 +1,32 @@
+#! /bin/bash
+# postinst script
+
+set -e
+
+
+# summary of how this script can be called:
+#       * <postinst> `configure' <most-recently-configured-version>
+#       * <old-postinst> `abort-upgrade' <new version>
+#       * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#         <new-version>
+#       * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#         <failed-install-package> <version> `removing'
+#         <conflicting-package> <version>
+#
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+#
+
+
+if [ "$1" = "configure" ] ; then
+    if ! getent passwd powerfolder > /dev/null ; then
+        echo 'Adding system-user for PowerFolder-Server' 1>&2
+        adduser --system --group --quiet --home /var/lib/powerfolder \
+            --shell /bin/false --disabled-login --uid 55777 powerfolder || exit 1
+    fi
+    if [ -x "/etc/init.d/powerfolder-server" ]; then
+        update-rc.d powerfolder-server defaults 98 02 1>&2
+    fi
+fi
+
+exit 0
