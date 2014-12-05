@@ -1,0 +1,47 @@
+11c11
+< SERVER_INSTALL=.
+---
+> SERVER_INSTALL=/opt/gwdg-cloud-share-server
+12a13,14
+> 
+> #
+34,36c36,40
+< # JAVA_TMP specifies where the server will store
+< # temporary files.
+< JAVA_TMP="-Djava.io.tmpdir=/tmp"
+---
+> 
+> 
+> # Determine Memory settings based on machine's memory size minus a margin of 1-2GB
+> EVAL_MEM=$(echo "$(grep 'MemTotal' /proc/meminfo | tr -s ' ' | cut -d ' ' -f 2) / 1024 / 1024 - 1" | bc)
+> if [[ "$EVAL_MEM" -gt 1 ]]; then JAVA_MEM="-Xms256m -Xmx${EVAL_MEM}g -XX:NewRatio=8 -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -Xincgc"; fi
+41d44
+< 
+74c77
+< 	rm -Rf $SERVER_INSTALL/jre32
+---
+> 	#rm -Rf $SERVER_INSTALL/jre32
+77c80
+< 	rm -Rf $SERVER_INSTALL/jre64
+---
+> 	#rm -Rf $SERVER_INSTALL/jre64
+80d82
+< 
+94a97,105
+> # Setup individual upload directory
+> UPLOAD_DIR_PARM=""
+> if [ -r ${SERVER_HOME}/PowerFolder.config ]; then
+>     FOLDER_BASEPATH=$(sed -n 's/foldersbase=\(.*\)/\1/p' ${SERVER_HOME}/PowerFolder.config)
+>     UPLOAD_DIR_PATH="${FOLDER_BASEPATH}/$(hostname)_uploads"
+>     mkdir -p ${UPLOAD_DIR_PATH}
+>     if touch ${UPLOAD_DIR_PATH}/touchtest ; then UPLOAD_DIR_PARM="-Djava.io.tmpdir=${UPLOAD_DIR_PATH}" ; rm ${UPLOAD_DIR_PATH}/touchtest; else echo "WARN: Not using custom upload path."; fi
+> fi
+> 
+98c109
+< RUN_CMD="$RUN_JAVA $JAVA_MEM $JAVA_TMP -Duser.home=$SERVER_HOME -Dpf.install.dir=$SERVER_INSTALL -cp $CP -server de.dal33t.Start"
+---
+> RUN_CMD="$RUN_JAVA $JAVA_MEM $UPLOAD_DIR_PARM -Duser.home=$SERVER_HOME -Dpf.install.dir=$SERVER_INSTALL -cp $CP -server de.dal33t.Start"
+110c121
+< 	SERVER_PID="$SERVER_HOME/.PowerFolder/PowerFolder-Server.pid"
+---
+> 	SERVER_PID="$SERVER_HOME/PowerFolder-Server.pid"
