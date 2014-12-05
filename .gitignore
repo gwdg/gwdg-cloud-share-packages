@@ -4,3 +4,9 @@ gwdg-cloud-share-server/opt/gwdg-cloud-share-server/LICENSE.txt
 gwdg-cloud-share-server/opt/gwdg-cloud-share-server/jre32/
 gwdg-cloud-share-server/opt/gwdg-cloud-share-server/jre64/
 gwdg-cloud-share-server/opt/gwdg-cloud-share-server/libs/
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/*.jar
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/*.sh
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/LICENSE.txt
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/jre32/
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/jre64/
+gwdg-cloud-share-server-test/opt/gwdg-cloud-share-server/libs/
