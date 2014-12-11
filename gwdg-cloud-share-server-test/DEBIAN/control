@@ -1,8 +1,8 @@
 Package: gwdg-cloud-share-server-test
-Version: 9.5.189gwdg3
+Version: 9.5.189gwdg4
 Architecture: all
 Maintainer: GWDG <cloudshare@gwdg.de>
-Installed-Size: 684760
+Installed-Size: 315940
 Section: misc
 Priority: optional
 Homepage: http://cloudshare.gwdg.de/jumpto/
