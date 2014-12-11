@@ -1,5 +1,5 @@
 Package: gwdg-cloud-share-server-test
-Version: 9.5.189gwdg2
+Version: 9.5.189gwdg3
 Architecture: all
 Maintainer: GWDG <cloudshare@gwdg.de>
 Installed-Size: 684760
@@ -7,5 +7,5 @@ Section: misc
 Priority: optional
 Homepage: http://cloudshare.gwdg.de/jumpto/
 Description: GWDG Cloud Share PowerFolder-Server
- Installs pre-configured PowerFolder-Server softare for
+ Installs pre-configured PowerFolder-Server software for
  GWDG Cloud Share.
