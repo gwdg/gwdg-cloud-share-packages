@@ -1,4 +1,4 @@
 # GWDG Cloud Share Server
 # http://www.gwdg.de/index.php?id=cloudshare
-# https://wiki-intern.gwdg.de/index.php/PowerFolder
-deb http://packages.gwdg.de/gwdg-cloud-share-server/deb /
+# https://wiki-intern.gwdg.de/index.php/GWDG_Cloud_Share
+deb https://packages.gwdg.de/gwdg-cloud-share-server/deb/ main latest
