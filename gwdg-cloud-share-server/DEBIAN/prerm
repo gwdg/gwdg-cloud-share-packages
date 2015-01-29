@@ -3,9 +3,4 @@
 
 set -e
 
-
-if [ -x "/etc/init.d/powerfolder-server" ]; then
-        invoke-rc.d powerfolder-server stop || exit $?
-fi
-
 exit 0

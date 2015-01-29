@@ -24,9 +24,6 @@ if [ "$1" = "configure" ] ; then
         adduser --system --group --quiet --home /var/lib/powerfolder \
             --shell /bin/false --disabled-login --uid 1001 powerfolder || exit 1
     fi
-    if [ -x "/etc/init.d/powerfolder-server" ]; then
-        update-rc.d powerfolder-server defaults 98 02 1>&2
-    fi
 fi
 
 exit 0
