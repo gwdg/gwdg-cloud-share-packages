@@ -3,4 +3,6 @@
 
 set -e
 
+/sbin/stop powerfolder-server
+
 exit 0
