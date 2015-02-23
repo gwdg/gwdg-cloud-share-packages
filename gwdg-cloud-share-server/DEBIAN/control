@@ -1,5 +1,5 @@
 Package: gwdg-cloud-share-server
-Version: 9.5.196gwdg1
+Version: 9.5.196gwdg4
 Architecture: all
 Conflicts: gwdg-cloud-share-server-test
 Installed-Size: 315016

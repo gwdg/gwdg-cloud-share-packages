@@ -3,6 +3,8 @@
 
 set -e
 
-/sbin/stop powerfolder-server
+if /sbin/status powerfolder-server | grep -q running ; then
+    /sbin/stop powerfolder-server
+fi
 
 exit 0
